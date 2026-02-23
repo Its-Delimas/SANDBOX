@@ -1,29 +1,22 @@
-import { Fragment } from "react";
+// how to render a list
+export default function App() {
+  const users = [
+    { id: 1, name: "Spencer", role: "Frontend Developer" },
+    { id: 2, name: "Delimas", role: "UI & UX Designer" },
+    { id: 3, name: "Bangoya", role: "Backend Developer" },
+  ];
 
-function App() {
   return (
-    <Fragment>
-      <h2>Hello World</h2>
-      <Null />
-      <JSX />
-    </Fragment>
+    <>
+      <ul>
+        {users.map((user) => {
+          return (
+            <li key={user.id}>
+              Name : {user.name} ~Role: {user.role}
+            </li>
+          );
+        })}
+      </ul>
+    </>
   );
 }
-
-//returning a NULL component
-function Null() {
-  return <>{/*   null  */}</>;
-}
-// JSX
-function JSX() {
-  const myElement = <h1>this is JSX</h1>;
-
-  // embed JavaScript
-  const lowercaseClass = "text-lowercase";
-  const text = "Hello World";
-  const New = <h2 className={lowercaseClass}>{text}</h2>;
-
-  return myElement;
-}
-
-export default App;
