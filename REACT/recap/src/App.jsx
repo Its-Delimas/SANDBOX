@@ -1,22 +1,26 @@
-// how to render a list
-export default function App() {
-  const users = [
-    { id: 1, name: "Spencer", role: "Frontend Developer" },
-    { id: 2, name: "Delimas", role: "UI & UX Designer" },
-    { id: 3, name: "Bangoya", role: "Backend Developer" },
-  ];
+// Props from Parent Components to Children
+function App() {
+  return (
+    <ChildComponent
+      name="Spencer"
+      age={19}
+      hobbies={["Read Books", "Drink Coffee"]}
+      occupation="Software Engineering"
+    />
+  );
+}
 
+function ChildComponent(prop) {
   return (
     <>
-      <ul>
-        {users.map((user) => {
-          return (
-            <li key={user.id}>
-              Name : {user.name} ~Role: {user.role}
-            </li>
-          );
-        })}
-      </ul>
+      <h1>Hello, my name is {prop.name}</h1>
+      <p>
+        I am {prop.age} years old...
+        <br />
+        my hobbies are : {prop.hobbies} <br />
+        Occupation : {prop.occupation}
+      </p>
     </>
   );
 }
+export default App;
