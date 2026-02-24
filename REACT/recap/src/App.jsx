@@ -1,26 +1,13 @@
-// Props from Parent Components to Children
-function App() {
-  return (
-    <ChildComponent
-      name="Spencer"
-      age={19}
-      hobbies={["Read Books", "Drink Coffee"]}
-      occupation="Software Engineering"
-    />
-  );
-}
+// inline rendering &&
 
-function ChildComponent(prop) {
+export default function App() {
+  const NewEmail = 2;
+
   return (
     <>
-      <h1>Hello, my name is {prop.name}</h1>
-      <p>
-        I am {prop.age} years old...
-        <br />
-        my hobbies are : {prop.hobbies} <br />
-        Occupation : {prop.occupation}
-      </p>
+      <h1>Hello There</h1>
+
+      {NewEmail > 0 && <h2>You have {NewEmail} new emails in your inbox</h2>}
     </>
   );
 }
-export default App;
