@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { createPost } from "../API/postService";
 
 function PostForm({ onPostCreated }) {
@@ -21,7 +21,8 @@ function PostForm({ onPostCreated }) {
       onPostCreated(newPost);
       setTitle("");
       setBody("");
-    } catch (error) {
+    } catch (err) {
+      console.error(err);
       seterror("Failed to Create Post");
     } finally {
       setSubmitting(false);
