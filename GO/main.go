@@ -1,36 +1,33 @@
 package main
 
-import (
-	"fmt"
-	"sort"
-)
+import "fmt"
 
 func main() {
-	x := 0
-	//while loop but its for in GO
-	for x < 5 {
-		fmt.Println("value of x is :", x)
-		x += 2
-	}
-	//normal for loop but does not use parenthesis
-	for i := 0; i < 5; i += 1 {
-		fmt.Println("Odd Numbers:", i)
-	}
-
-	names := []string{"Spencer", "Delimas", "Bangoya", "Luigi", "Armstrong"}
-	sort.Strings(names)
-	for i := 0; i < len(names); i++ {
-		fmt.Println(names[i])
+	age := 45
+	fmt.Println(age <= 50)
+	fmt.Println(age >= 50)
+	fmt.Println(age == 45)
+	fmt.Println(age != 50)
+	// conditionals - if statement
+	if age < 30 {
+		fmt.Println("age is less than 30")
+	} else if age < 40 {
+		fmt.Println("Age is less than 40")
+	} else {
+		fmt.Println("Age is not above than 40")
 	}
 
-	//for-in loop but in GO its RANGE keyword
-	//cycle through a slice
-	for index, value := range names {
-		fmt.Printf("The position at index %v is value %v \n", index, value)
-	}
-
-	//if you dont want to use the index
-	for _, value := range names {
-		fmt.Printf("The value %v \n", value)
+	// nested ifs - if inside loops
+	name := []string{"Zuko", "Sokka", "Katara", "Toph", "Aang"}
+	for index, value := range name {
+		if index == 1 {
+			fmt.Println("continuing at pos \n", index)
+			continue //means break out of this iteration and contnue the loop
+		}
+		if index > 2 {
+			fmt.Println("Breaking at pos\n", index)
+			break //breaks out of the loop completely
+		}
+		fmt.Printf("The value %v at index is %v \n", index, value)
 	}
 }
