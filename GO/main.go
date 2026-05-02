@@ -3,26 +3,27 @@ package main
 import "fmt"
 
 func main() {
-	age := 35
-	name := "spencer"
+	//arrays
+	var ages [4]int = [4]int{20, 25, 30, 40} //method 1
+	var numbers = [4]int{20, 25, 30, 40}     //method 2
 
-	// print - same output on the same line
-	fmt.Print("hello")
-	fmt.Print("ninja")
+	//fmt.Println(ages) ~printing arrays
+	fmt.Println(ages, len(ages)) //return with length of arrays,
+	fmt.Println(numbers)
 
-	// Println - opens new line automatically
-	fmt.Println("hello, Spencer")
-	fmt.Println("Go lore")
-	fmt.Println("my name is:", name, " and my name is: ", age)
+	//slices (use arrays under the hood)
+	var scores = []int{100, 50, 60}
+	scores = append(scores, 67)
+	scores = append(scores, 97)
+	fmt.Println(scores, len(scores))
 
-	// formatted strings `Printf`, %_ = format specifiers
-	fmt.Printf("my age is %v and my name is %v \n", age, name)  //%v = use default variable type
-	fmt.Printf("my age is %v and my name is %q \n", age, name)  //%q= quotes around strings
-	fmt.Printf("age is of type %T\n", age)                      //%T = returns type of var
-	fmt.Printf("you scored %0.2f ponts in your gcpa\n", 225.59) //%f = floats, o.2 for 2d.p
+	// slice ranges - inclusive of first number but no te second
+	rangeOne := scores[1:3]  //index 1 and 2 but not 3
+	rangeTwo := scores[2:]   //from index two going on forward to the very last
+	rangeThree := scores[:3] //from start upto but not including position three
 
-	// Sprintf (save formatted strings)
-	var str = fmt.Sprintf("my age is %v and my name is %v", age, name)
-	fmt.Printf("The saved string is : %v", str)
+	fmt.Println(rangeOne)
+	fmt.Println(rangeTwo)
+	fmt.Println(rangeThree)
 
 }
