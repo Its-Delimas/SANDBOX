@@ -1,0 +1,4 @@
+Bill breakdown: 
+coffee:                   ...ksh 4.99 
+tip:                      ...ksh 20
+total:                    ...ksh 24.99

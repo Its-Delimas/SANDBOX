@@ -63,12 +63,23 @@ func PromptOptions(b bill) {
 		fmt.Println("Tip added successfully: ")
 		PromptOptions(b)
 	case "s":
-		fmt.Println("You chose to save the bill")
+		b.save()
+		fmt.Println("You saved a file - ", b.name)
 	default:
 		fmt.Println("Invalid option...")
 		PromptOptions(b)
 	}
 
+}
+
+func (b *bill) save() {
+	data := []byte(b.format())
+	err := os.WriteFile("bills/"+b.name+".txt", data, 0644)
+	if err != nil {
+		panic(err)
+
+	}
+	fmt.Println("Bill is saved succesfully")
 }
 
 func main() {
