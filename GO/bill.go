@@ -12,7 +12,7 @@ type bill struct {
 func newBill(name string) bill {
 	b := bill{
 		name:  name,
-		items: map[string]float64{"coffee": 9.99, "pie": 4.99, "cookies": 5.55},
+		items: map[string]float64{},
 		tip:   0,
 	}
 	return b
@@ -27,8 +27,20 @@ func (b bill) format() string {
 		fs += fmt.Sprintf("%-25v ...ksh %v \n", k+":", v) //%-25v - add empty space, uniform lineup: - for rigt space, + for left space
 		total += v
 	}
+	//tip
+	fs += fmt.Sprintf("%-25v ...ksh %v\n", "tip:", b.tip)
 
 	//total
-	fs += fmt.Sprintf("%-25v ...%0.2f", "total:", total) //%-25v - add empty space, uniform lineup: - for rigt space, + for left space
+	fs += fmt.Sprintf("%-25v ...ksh %0.2f", "total:", total+b.tip) //%-25v - add empty space, uniform lineup: - for rigt space, + for left space
 	return fs
+}
+
+// update tip
+func (b *bill) updateTip(tip float64) {
+	b.tip = tip
+}
+
+// add items
+func (b *bill) addItem(name string, price float64) {
+	b.items[name] = price
 }
